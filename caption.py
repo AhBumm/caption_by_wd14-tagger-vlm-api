@@ -81,7 +81,7 @@ def main(args):
         )
 
     # Init tagger class
-    my_tagger = Tagger(logger=my_logger, args=args, model_path=model_path, tags_csv_path=tags_csv_path)
+    my_tagger = Tagger(logger=my_logger, args=args, model_path=model_path, tags_csv_path=tags_csv_path, api_key=args.api_key, api_url=args.api_url, api_model=args.api_model)
     # Load model
     my_tagger.load_model()
     # Load tags from csv
@@ -302,6 +302,14 @@ def setup_args() -> argparse.ArgumentParser:
         action='store_true',
         help='expand tag tail parenthesis to another tag for character tags. e.g. '
              '`character_name_(series)` will be expanded to `character_name, series`.',
+    )
+    args.add_argument('-k','--api_key', type=str, help='API key for VLM.')
+    args.add_argument('-u','--api_url', type=str, help='API URL for VLM.')
+    args.add_argument('-m','--api_model', type=str, help='API model name for')
+    args.add_argument(
+        '--enable_api_caption',
+        action='store_true',
+        help='Enable API-based caption generation.',
     )
     return args
 
