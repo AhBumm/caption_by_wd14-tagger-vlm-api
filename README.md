@@ -39,6 +39,20 @@ place).
 
 make a simple ui by Jupyter widget(When my lazy cancer cured😊)
 
+## New! API-Caption
+
+Enable api caption
+`--enable_api_caption`
+
+Set API url
+`-u url`
+
+Set API key
+`-k Your key`
+
+Set API model
+`-m Model name`
+
 ## Installation
 
 Python 3.10-3.12 works fine.
