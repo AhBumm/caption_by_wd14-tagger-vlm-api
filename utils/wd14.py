@@ -118,8 +118,7 @@ Just a detailed description, no formatting required, all written in one line. Ig
         )
         additional_tags = completion.choices[0].message.content.strip()
         combined_tags = f"{tags}, {additional_tags}"
-        final_text = combined_tags.replace('\n', '').replace('.', ',')
-        final_text = re.sub(r"[^a-zA-Z0-9\s,'-]", "", final_text)
+        final_text = re.sub(r"[^a-zA-Z0-9\s,'-()]", "", combined_tags).replace('\n', '').replace('.', ',')
         return final_text
 
     def load_model(self):
